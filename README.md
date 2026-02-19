@@ -42,7 +42,7 @@ All scripts share a common configuration file (`Preamble.sh`) that defines envir
 ## Pipeline Overview
 
 ```mermaid
-flowchart TD
+flowchart LR
 
 %% ---------- Styling ----------
 classDef stage fill:#2b2b2b,stroke:#cccccc,stroke-width:1.5px,color:#ffffff;
