@@ -21,13 +21,15 @@ All scripts share a common configuration file (`Preamble.sh`) that defines envir
    Edit this file to match dataset paths and required modules.
 
 2. Raw data must exist in the data directory specified in `Preamble.sh`.  
-   The directory structure is tied to the expected QuNex output setup. See example Preamble.sh.
+   The directory structure is tied to the expected QuNex output setup. See example `Preamble.sh`.
 
 3. Setup scripts are run interactively in the terminal, while processing steps can be submitted to the compute queue.
 
-4. **Each step should be executed independently**, only after all previous steps have completed successfully.
+4. **Each setup step should be executed independently**, only after all previous steps have completed successfully.
 
-5. Each script includes a `--bind` flag allowing use of symlinks by attaching original data paths inside the container environment.
+5. The **Structural** processing is required for all subsequent steps.
+
+6. Each script includes a `--bind` flag allowing use of symlinks by attaching original data paths inside the container environment.
 
 ---
 
