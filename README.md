@@ -33,49 +33,37 @@ All scripts share a common configuration file (`Preamble.sh`) that defines envir
 
 ---
 
-## Script Directory
-
-/share/HCP/QuNex_pipeline
-
----
-
 ## Pipeline Overview
 
 ```mermaid
 flowchart LR
 
-%% ---------- Styling ----------
 classDef stage fill:#2b2b2b,stroke:#cccccc,stroke-width:1.5px,color:#ffffff;
 
-%% ---------- Pipeline Stages ----------
-Setup["<b>Setup</b><hr/>
-1. CreateStudy&nbsp;<br/>
-2. ImportHCP&nbsp;<br/>
-3. SetupHCP&nbsp;<br/>
-4. CreateBatch&nbsp;"]
+Setup["<b>Setup</b><br/>────────────<br/>
+1. CreateStudy<br/>
+2. ImportHCP<br/>
+3. SetupHCP<br/>
+4. CreateBatch"]
 
-Structural["<b>Structural</b><hr/>
-5. PreFreesurfer&nbsp;<br/>
-6. Freesurfer&nbsp;<br/>
-7. PostFreesurfer&nbsp;"]
+Structural["<b>Structural</b><br/>────────────<br/>
+5. PreFreesurfer<br/>
+6. Freesurfer<br/>
+7. PostFreesurfer"]
 
-Diffusion["<b>Diffusion</b><hr/>
-8. DiffusionPreProc&nbsp;<br/>
-9. BedpostX&nbsp;"]
+Diffusion["<b>Diffusion</b><br/>────────────<br/>
+8. DiffusionPreProc<br/>
+9. BedpostX"]
 
-Functional["<b>Functional</b><hr/>
-10. fMRIVolume&nbsp;<br/>
-11. fMRISurface&nbsp;<br/>
-12. MSMALL&nbsp;<br/>
-13. ICA&nbsp;"]
+Functional["<b>Functional</b><br/>────────────<br/>
+10. fMRIVolume<br/>
+11. fMRISurface<br/>
+12. MSMALL<br/>
+13. ICA"]
 
-%% ---------- Connections ----------
 Setup --> Structural --> Diffusion --> Functional
-
-%% ---------- Apply Style ----------
 class Setup,Structural,Diffusion,Functional stage;
 ```
-
 ---
 
 ## Pipeline Steps
