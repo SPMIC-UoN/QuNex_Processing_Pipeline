@@ -41,28 +41,27 @@ flowchart LR
 %% ---------- Styling ----------
 classDef stage fill:#2b2b2b,stroke:#cccccc,stroke-width:1.5px,color:#ffffff;
 
-%% ---------- Helper: pad labels to equal width ----------
-%% (Non-breaking spaces force a minimum box width on GitHub.)
-Setup["&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Setup</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<hr/>
-&nbsp;1. CreateStudy<br/>
-&nbsp;2. ImportHCP<br/>
-&nbsp;3. SetupHCP<br/>
-&nbsp;4. CreateBatch&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]
+%% ---------- Pipeline Stages (pad on RIGHT only) ----------
+Setup["<b>Setup</b><hr/>
+1. CreateStudy<br/>
+2. ImportHCP<br/>
+3. SetupHCP<br/>
+4. CreateBatch&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]
 
-Structural["&nbsp;&nbsp;&nbsp;<b>Structural</b>&nbsp;&nbsp;&nbsp;<hr/>
-&nbsp;5. PreFreesurfer<br/>
-&nbsp;6. Freesurfer<br/>
-&nbsp;7. PostFreesurfer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]
+Structural["<b>Structural</b><hr/>
+5. PreFreesurfer<br/>
+6. Freesurfer<br/>
+7. PostFreesurfer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]
 
-Diffusion["&nbsp;&nbsp;&nbsp;<b>Diffusion</b>&nbsp;&nbsp;&nbsp;<hr/>
-&nbsp;8. DiffusionPreProc<br/>
-&nbsp;9. BedpostX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]
+Diffusion["<b>Diffusion</b><hr/>
+8. DiffusionPreProc<br/>
+9. BedpostX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]
 
-Functional["&nbsp;&nbsp;<b>Functional</b>&nbsp;&nbsp;<hr/>
-&nbsp;10. fMRIVolume<br/>
-&nbsp;11. fMRISurface<br/>
-&nbsp;12. MSMALL<br/>
-&nbsp;13. ICA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]
+Functional["<b>Functional</b><hr/>
+10. fMRIVolume<br/>
+11. fMRISurface<br/>
+12. MSMALL<br/>
+13. ICA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"]
 
 %% ---------- Connections ----------
 Setup --> Structural --> Diffusion --> Functional
@@ -70,6 +69,7 @@ Setup --> Structural --> Diffusion --> Functional
 %% ---------- Apply Style ----------
 class Setup,Structural,Diffusion,Functional stage;
 ```
+
 ---
 
 ## Pipeline Steps
