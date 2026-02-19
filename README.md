@@ -21,52 +21,62 @@ All scripts share a common configuration file (`Preamble.sh`) that defines envir
    Edit this file to match dataset paths and required modules.
 
 2. Raw data must exist in the data directory specified in `Preamble.sh`.  
-   The directory structure is tied to the expected QuNex output setup. See example Preamble.sh.
+   The directory structure is tied to the expected QuNex output setup. See example `Preamble.sh`.
 
 3. Setup scripts are run interactively in the terminal, while processing steps can be submitted to the compute queue.
 
-4. **Each step should be executed independently**, only after all previous steps have completed successfully.
+4. **Each setup step should be executed independently**, only after all previous steps have completed successfully.
 
-5. Each script includes a `--bind` flag allowing use of symlinks by attaching original data paths inside the container environment.
+5. The **Structural** processing is required for all subsequent steps.
 
----
-
-## Script Directory
-
-/share/HCP/QuNex_pipeline
+6. Each script includes a `--bind` flag allowing use of symlinks by attaching original data paths inside the container environment.
 
 ---
 
 ## Pipeline Overview
 
-```md
 ```mermaid
-flowchart TD
+flowchart LR
 
-subgraph Setup
-A[CreateStudy] --> B[ImportHCP]
-B --> C[SetupHCP]
-C --> D[CreateBatch]
-end
+classDef stage fill:#2b2b2b,stroke:#cccccc,stroke-width:1.5px,color:#ffffff;
 
-subgraph Structural
-D --> E[PreFreesurfer]
-E --> F[Freesurfer]
-F --> G[PostFreesurfer]
-end
+Setup["<div align='center'><b>Setup</b></div>
+<hr/>
+<div align='left'>
+1. CreateStudy<br/>
+2. ImportHCP<br/>
+3. SetupHCP<br/>
+4. CreateBatch
+</div>"]
 
-subgraph Diffusion
-G --> H[DiffusionPreProc]
-H --> I[BedpostX]
-end
+Structural["<div align='center'><b>Structural</b></div>
+<hr/>
+<div align='left'>
+5. PreFreesurfer<br/>
+6. Freesurfer<br/>
+7. PostFreesurfer
+</div>"]
 
-subgraph Functional
-I --> J[fMRIVolume]
-J --> K[fMRISurface]
-K --> L[MSMALL]
-L --> M[ICA]
-end
+Diffusion["<div align='center'><b>Diffusion</b></div>
+<hr/>
+<div align='left'>
+8. DiffusionPreProc<br/>
+9. BedpostX
+</div>"]
 
+Functional["<div align='center'><b>Functional</b></div>
+<hr/>
+<div align='left'>
+10. fMRIVolume<br/>
+11. fMRISurface<br/>
+12. MSMALL<br/>
+13. ICA
+</div>"]
+
+Setup --> Structural --> Diffusion --> Functional
+
+class Setup,Structural,Diffusion,Functional stage;
+```
 ---
 
 ## Pipeline Steps
@@ -80,7 +90,7 @@ sh ${script_repo}/CreatStudy.sh ${subject_id}
 sh ${script_repo}/ImportHCP.sh ${subject_id}
 sh ${script_repo}/SetupHCP.sh ${subject_id}
 sh ${script_repo}/CreateBatch.sh ${subject_id}
-
+```
 
 ### 2. Structural
 
@@ -90,7 +100,7 @@ Structural MR processing.
 sh ${script_repo}/PreFreesurfer.sh ${subject_id} ${queue_name}
 sh ${script_repo}/Freesurfer.sh ${subject_id} ${queue_name}
 sh ${script_repo}/PostFreesurfer.sh ${subject_id} ${queue_name}
-
+```
 
 ### 3. Diffusion
 
@@ -99,7 +109,7 @@ Diffusion processing + BedpostX
 ```bash
 sh ${script_repo}/DiffusionPreProc.sh ${subject_id} ${queue_name}
 sh ${script_repo}/BedpostX.sh ${subject_id} ${queue_name} ${model}
-
+```
 
 ### 4. Functional
 
@@ -110,7 +120,7 @@ sh ${script_repo}/fMRIVolume.sh ${subject_id} ${queue_name}
 sh ${script_repo}/fMRISurface.sh ${subject_id} ${queue_name}
 sh ${script_repo}/MSMALL.sh ${subject_id} ${queue_name}
 sh ${script_repo}/ICA.sh ${subject_id} ${queue_name}
-
+```
 
 ### BONUS: fMRI QC functions
 
