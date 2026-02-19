@@ -41,7 +41,6 @@ All scripts share a common configuration file (`Preamble.sh`) that defines envir
 
 ## Pipeline Overview
 
-```md
 ```mermaid
 flowchart TD
 
@@ -68,9 +67,9 @@ J --> K[fMRISurface]
 K --> L[MSMALL]
 L --> M[ICA]
 end
-
----
 ```
+---
+
 ## Pipeline Steps
 
 ### 1. Setup
@@ -101,7 +100,7 @@ Diffusion processing + BedpostX
 ```bash
 sh ${script_repo}/DiffusionPreProc.sh ${subject_id} ${queue_name}
 sh ${script_repo}/BedpostX.sh ${subject_id} ${queue_name} ${model}
-
+```
 
 ### 4. Functional
 
