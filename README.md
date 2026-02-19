@@ -124,4 +124,6 @@ sh ${script_repo}/ICA.sh ${subject_id} ${queue_name}
 
 ### BONUS: fMRI QC functions
 
+```bash
 ${script_repo}/quality_control.py
+```
