@@ -36,42 +36,33 @@ All scripts share a common configuration file (`Preamble.sh`) that defines envir
 ## Pipeline Overview
 
 ```mermaid
+%%{init: {"flowchart": {"htmlLabels": true}} }%%
 flowchart LR
 
-classDef stage fill:#2b2b2b,stroke:#cccccc,stroke-width:1.5px,color:#ffffff;
+%% Left-align node text by default (body), keep overall styling
+classDef stage fill:#2b2b2b,stroke:#cccccc,stroke-width:1.5px,color:#ffffff,text-align:left;
 
-Setup["<div align='center'><b>Setup</b></div>
-<hr/>
-<div align='left'>
-1. CreateStudy<br/>
-2. ImportHCP<br/>
-3. SetupHCP<br/>
-4. CreateBatch
-</div>"]
+%% Use a centered header line + divider + body with a bit more line spacing
+Setup["<div style='text-align:center;'><b>Setup</b></div><hr/>
+1.&nbsp;&nbsp;CreateStudy<br/><br/>
+2.&nbsp;&nbsp;ImportHCP<br/><br/>
+3.&nbsp;&nbsp;SetupHCP<br/><br/>
+4.&nbsp;&nbsp;CreateBatch"]
 
-Structural["<div align='center'><b>Structural</b></div>
-<hr/>
-<div align='left'>
-5. PreFreesurfer<br/>
-6. Freesurfer<br/>
-7. PostFreesurfer
-</div>"]
+Structural["<div style='text-align:center;'><b>Structural</b></div><hr/>
+5.&nbsp;&nbsp;PreFreesurfer<br/><br/>
+6.&nbsp;&nbsp;Freesurfer<br/><br/>
+7.&nbsp;&nbsp;PostFreesurfer"]
 
-Diffusion["<div align='center'><b>Diffusion</b></div>
-<hr/>
-<div align='left'>
-8. DiffusionPreProc<br/>
-9. BedpostX
-</div>"]
+Diffusion["<div style='text-align:center;'><b>Diffusion</b></div><hr/>
+8.&nbsp;&nbsp;DiffusionPreProc<br/><br/>
+9.&nbsp;&nbsp;BedpostX"]
 
-Functional["<div align='center'><b>Functional</b></div>
-<hr/>
-<div align='left'>
-10. fMRIVolume<br/>
-11. fMRISurface<br/>
-12. MSMALL<br/>
-13. ICA
-</div>"]
+Functional["<div style='text-align:center;'><b>Functional</b></div><hr/>
+10.&nbsp;&nbsp;fMRIVolume<br/><br/>
+11.&nbsp;&nbsp;fMRISurface<br/><br/>
+12.&nbsp;&nbsp;MSMALL<br/><br/>
+13.&nbsp;&nbsp;ICA"]
 
 Setup --> Structural --> Diffusion --> Functional
 
