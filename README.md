@@ -48,17 +48,26 @@ flowchart TD
 classDef stage fill:#2b2b2b,stroke:#cccccc,stroke-width:1.5px,color:#ffffff;
 
 %% ---------- Pipeline Stages ----------
-Setup["<b>Setup</b><br/><hr/><br/>
-CreateStudy → ImportHCP → SetupHCP → CreateBatch"]
+Setup["<b>Setup</b><br/>
+1. CreateStudy<br/>
+2. ImportHCP<br/>
+3. SetupHCP<br/>
+4. CreateBatch"]
 
-Structural["<b>Structural</b><br/><hr/><br/>
-PreFreesurfer → Freesurfer → PostFreesurfer"]
+Structural["<b>Structural</b><br/>
+5. PreFreesurfer<br/>
+6. Freesurfer<br/>
+7. PostFreesurfer"]
 
-Diffusion["<b>Diffusion</b><br/><hr/><br/>
-DiffusionPreProc → BedpostX"]
+Diffusion["<b>Diffusion</b><br/>
+8. DiffusionPreProc<br/>
+9. BedpostX"]
 
-Functional["<b>Functional</b><br/><hr/><br/>
-fMRIVolume → fMRISurface → MSMALL → ICA"]
+Functional["<b>Functional</b><br/>
+10. fMRIVolume<br/>
+11. fMRISurface<br/>
+12. MSMALL<br/>
+13. ICA"]
 
 %% ---------- Stage Connections ----------
 Setup --> Structural --> Diffusion --> Functional
