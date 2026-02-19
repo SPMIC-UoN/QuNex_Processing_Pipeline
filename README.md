@@ -36,33 +36,30 @@ All scripts share a common configuration file (`Preamble.sh`) that defines envir
 ## Pipeline Overview
 
 ```mermaid
-%%{init: {"flowchart": {"htmlLabels": true}} }%%
 flowchart LR
 
-%% Left-align node text by default (body), keep overall styling
-classDef stage fill:#2b2b2b,stroke:#cccccc,stroke-width:1.5px,color:#ffffff,text-align:left;
+classDef stage fill:#2b2b2b,stroke:#cccccc,stroke-width:1.5px,color:#ffffff;
 
-%% Use a centered header line + divider + body with a bit more line spacing
-Setup["<div style='text-align:center;'><b>Setup</b></div><hr/>
-1.&nbsp;&nbsp;CreateStudy<br/><br/>
-2.&nbsp;&nbsp;ImportHCP<br/><br/>
-3.&nbsp;&nbsp;SetupHCP<br/><br/>
-4.&nbsp;&nbsp;CreateBatch"]
+Setup["<b>Setup</b><hr/>
+<pre>  1. CreateStudy
+  2. ImportHCP
+  3. SetupHCP
+  4. CreateBatch</pre>"]
 
-Structural["<div style='text-align:center;'><b>Structural</b></div><hr/>
-5.&nbsp;&nbsp;PreFreesurfer<br/><br/>
-6.&nbsp;&nbsp;Freesurfer<br/><br/>
-7.&nbsp;&nbsp;PostFreesurfer"]
+Structural["<b>Structural</b><hr/>
+<pre>  5. PreFreesurfer
+  6. Freesurfer
+  7. PostFreesurfer</pre>"]
 
-Diffusion["<div style='text-align:center;'><b>Diffusion</b></div><hr/>
-8.&nbsp;&nbsp;DiffusionPreProc<br/><br/>
-9.&nbsp;&nbsp;BedpostX"]
+Diffusion["<b>Diffusion</b><hr/>
+<pre>  8. DiffusionPreProc
+  9. BedpostX</pre>"]
 
-Functional["<div style='text-align:center;'><b>Functional</b></div><hr/>
-10.&nbsp;&nbsp;fMRIVolume<br/><br/>
-11.&nbsp;&nbsp;fMRISurface<br/><br/>
-12.&nbsp;&nbsp;MSMALL<br/><br/>
-13.&nbsp;&nbsp;ICA"]
+Functional["<b>Functional</b><hr/>
+<pre> 10. fMRIVolume
+ 11. fMRISurface
+ 12. MSMALL
+ 13. ICA</pre>"]
 
 Setup --> Structural --> Diffusion --> Functional
 
