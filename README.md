@@ -70,7 +70,7 @@ L --> M[ICA]
 end
 
 ---
-
+```
 ## Pipeline Steps
 
 ### 1. Setup
@@ -82,7 +82,7 @@ sh ${script_repo}/CreatStudy.sh ${subject_id}
 sh ${script_repo}/ImportHCP.sh ${subject_id}
 sh ${script_repo}/SetupHCP.sh ${subject_id}
 sh ${script_repo}/CreateBatch.sh ${subject_id}
-
+```
 
 ### 2. Structural
 
@@ -92,7 +92,7 @@ Structural MR processing.
 sh ${script_repo}/PreFreesurfer.sh ${subject_id} ${queue_name}
 sh ${script_repo}/Freesurfer.sh ${subject_id} ${queue_name}
 sh ${script_repo}/PostFreesurfer.sh ${subject_id} ${queue_name}
-
+```
 
 ### 3. Diffusion
 
@@ -112,7 +112,7 @@ sh ${script_repo}/fMRIVolume.sh ${subject_id} ${queue_name}
 sh ${script_repo}/fMRISurface.sh ${subject_id} ${queue_name}
 sh ${script_repo}/MSMALL.sh ${subject_id} ${queue_name}
 sh ${script_repo}/ICA.sh ${subject_id} ${queue_name}
-
+```
 
 ### BONUS: fMRI QC functions
 
