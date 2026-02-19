@@ -48,22 +48,22 @@ flowchart LR
 classDef stage fill:#2b2b2b,stroke:#cccccc,stroke-width:1.5px,color:#ffffff;
 
 %% ---------- Pipeline Stages ----------
-Setup["<b>Setup</b><br/>
+Setup["<b>Setup</b><hr/>
 1. CreateStudy<br/>
 2. ImportHCP<br/>
 3. SetupHCP<br/>
 4. CreateBatch"]
 
-Structural["<b>Structural</b><br/>
+Structural["<b>Structural</b><hr/>
 5. PreFreesurfer<br/>
 6. Freesurfer<br/>
 7. PostFreesurfer"]
 
-Diffusion["<b>Diffusion</b><br/>
+Diffusion["<b>Diffusion</b><hr/>
 8. DiffusionPreProc<br/>
 9. BedpostX"]
 
-Functional["<b>Functional</b><br/>
+Functional["<b>Functional</b><hr/>
 10. fMRIVolume<br/>
 11. fMRISurface<br/>
 12. MSMALL<br/>
