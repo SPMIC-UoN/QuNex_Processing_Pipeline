@@ -43,31 +43,12 @@ All scripts share a common configuration file (`Preamble.sh`) that defines envir
 
 ```mermaid
 flowchart TD
+Setup["Setup<br/>CreateStudy → ImportHCP → SetupHCP → CreateBatch"]
+Structural["Structural<br/>PreFreesurfer → Freesurfer → PostFreesurfer"]
+Diffusion["Diffusion<br/>DiffusionPreProc → BedpostX"]
+Functional["Functional<br/>fMRIVolume → fMRISurface → MSMALL → ICA"]
 
-%% ---------- Setup ----------
-subgraph Setup
-A[CreateStudy] --> B[ImportHCP] --> C[SetupHCP] --> D[CreateBatch]
-end
-
-%% ---------- Structural ----------
-subgraph Structural
-E[PreFreesurfer] --> F[Freesurfer] --> G[PostFreesurfer]
-end
-
-%% ---------- Diffusion ----------
-subgraph Diffusion
-H[DiffusionPreProc] --> I[BedpostX]
-end
-
-%% ---------- Functional ----------
-subgraph Functional
-J[fMRIVolume] --> K[fMRISurface] --> L[MSMALL] --> M[ICA]
-end
-
-%% ---------- Stage connections ----------
-D --> E
-G --> H
-I --> J
+Setup --> Structural --> Diffusion --> Functional
 ```
 ---
 
