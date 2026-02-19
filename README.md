@@ -45,9 +45,7 @@ All scripts share a common configuration file (`Preamble.sh`) that defines envir
 flowchart TD
 
 subgraph Setup
-A[CreateStudy] --> B[ImportHCP]
-B --> C[SetupHCP]
-C --> D[CreateBatch]
+A[CreateStudy] --> B[ImportHCP] --> C[SetupHCP] --> D[CreateBatch]
 end
 
 subgraph Structural
