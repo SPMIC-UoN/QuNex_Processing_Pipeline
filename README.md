@@ -43,13 +43,30 @@ All scripts share a common configuration file (`Preamble.sh`) that defines envir
 
 ```mermaid
 flowchart TD
-Setup["Setup<br/>CreateStudy → ImportHCP → SetupHCP → CreateBatch"]
-Structural["Structural<br/>PreFreesurfer → Freesurfer → PostFreesurfer"]
-Diffusion["Diffusion<br/>DiffusionPreProc → BedpostX"]
-Functional["Functional<br/>fMRIVolume → fMRISurface → MSMALL → ICA"]
 
+%% ---------- Styling ----------
+classDef stage fill:#2b2b2b,stroke:#cccccc,stroke-width:1.5px,color:#ffffff;
+
+%% ---------- Pipeline Stages ----------
+Setup["<b>Setup</b><br/><hr/><br/>
+CreateStudy → ImportHCP → SetupHCP → CreateBatch"]
+
+Structural["<b>Structural</b><br/><hr/><br/>
+PreFreesurfer → Freesurfer → PostFreesurfer"]
+
+Diffusion["<b>Diffusion</b><br/><hr/><br/>
+DiffusionPreProc → BedpostX"]
+
+Functional["<b>Functional</b><br/><hr/><br/>
+fMRIVolume → fMRISurface → MSMALL → ICA"]
+
+%% ---------- Stage Connections ----------
 Setup --> Structural --> Diffusion --> Functional
+
+%% ---------- Apply Style ----------
+class Setup,Structural,Diffusion,Functional stage;
 ```
+
 ---
 
 ## Pipeline Steps
