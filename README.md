@@ -40,26 +40,38 @@ flowchart LR
 
 classDef stage fill:#2b2b2b,stroke:#cccccc,stroke-width:1.5px,color:#ffffff;
 
-Setup["<b>Setup</b><hr/>
+Setup["<div align='center'><b>Setup</b></div>
+<hr/>
+<div align='left'>
 1. CreateStudy<br/>
 2. ImportHCP<br/>
 3. SetupHCP<br/>
-4. CreateBatch"]
+4. CreateBatch
+</div>"]
 
-Structural["<b>Structural</b><hr/>
+Structural["<div align='center'><b>Structural</b></div>
+<hr/>
+<div align='left'>
 5. PreFreesurfer<br/>
 6. Freesurfer<br/>
-7. PostFreesurfer"]
+7. PostFreesurfer
+</div>"]
 
-Diffusion["<b>Diffusion</b><hr/>
+Diffusion["<div align='center'><b>Diffusion</b></div>
+<hr/>
+<div align='left'>
 8. DiffusionPreProc<br/>
-9. BedpostX"]
+9. BedpostX
+</div>"]
 
-Functional["<b>Functional</b><hr/>
+Functional["<div align='center'><b>Functional</b></div>
+<hr/>
+<div align='left'>
 10. fMRIVolume<br/>
 11. fMRISurface<br/>
 12. MSMALL<br/>
-13. ICA"]
+13. ICA
+</div>"]
 
 Setup --> Structural --> Diffusion --> Functional
 
